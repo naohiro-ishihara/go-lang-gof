@@ -1,12 +1,17 @@
 FROM golang:1.20.4-alpine
 
-# アップデートとgitのインストール
+# apk uddate and install tools
 RUN apk --update-cache --no-cache add git
 
+# envroiments
+ENV ENV="/etc/profile"
+
 # set alias commands
-ENV ENV='/etc/profile'
 COPY .aliases .
-RUN cat .aliases >> 'ENV'
+RUN cat .aliases >> "$ENV"
+
+# set golang binary path
+RUN echo 'export PATH="$PATH:/usr/local/go/bin"' >> "$ENV"
 
 RUN mkdir -p /work
 
