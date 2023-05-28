@@ -4,7 +4,7 @@ services:
     container_name: golang-gof
     build: ./docker/golang
     volumes: # マウントディレクトリ
-      - ./src:/work
+      - ./cmd:/cmd
     tty: true # コンテナの永続化
     env_file: # .envファイル
       - ./docker/golang/.go_env

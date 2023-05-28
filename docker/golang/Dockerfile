@@ -13,6 +13,6 @@ RUN cat .aliases >> "$ENV"
 # set golang binary path
 RUN echo 'export PATH="$PATH:/usr/local/go/bin"' >> "$ENV"
 
-RUN mkdir -p /work
+RUN mkdir -p /cmd
 
-WORKDIR /work
+WORKDIR /cmd
